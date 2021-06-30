@@ -410,9 +410,9 @@ export function validateUserInput(
     );
   } else if (value instanceof DocumentReference) {
     // Ok.
-  } else if (value instanceof GeoPoint) {
+  } else if (value instanceof GeoPoint || (value?.toProto && value?.latitude!== undefined && value?.longitude !== undefined)) {
     // Ok.
-  } else if (value instanceof Timestamp || value instanceof Date) {
+  } else if (value instanceof Timestamp || value instanceof Date || (value?.nanoseconds !== undefined && value?.seconds !== undefined && value?.toProto)) {
     // Ok.
   } else if (isMomentJsType(value)) {
     // Ok.
